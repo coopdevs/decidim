@@ -41,6 +41,9 @@ module Decidim
                        .not_hidden
                        .includes(:amendable, :category, :component, :resource_permission, :scope)
 
+          authors = [10, 11, 17, 21, 33]
+          @followers = Decidim::Proposals::AuthorFollowers.new(authors).query
+
           @voted_proposals = if current_user
                                ProposalVote.where(
                                  author: current_user,
