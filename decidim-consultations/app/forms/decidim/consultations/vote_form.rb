@@ -6,6 +6,7 @@ module Decidim
       mimic :vote
 
       attribute :decidim_consultations_response_id, Integer
+      attribute :decidim_consultations_delegation_id, Integer
 
       validates :decidim_consultations_response_id, presence: true
       validate :response_exists

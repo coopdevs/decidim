@@ -22,6 +22,7 @@
         <%= form.submit t("questions.vote_modal_confirm.confirm", scope: "decidim"),
                         class: "button expanded",
                         data: { disable: true } %>
+        <%= hidden_field_tag :decidim_consultations_delegation_id, nil, id: "decidim_consultations_delegation_id" %>
       <% end %>
       <div id="confirm-vote-form-loader" class="loading-spinner hide"></div>
     </div>
