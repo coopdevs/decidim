@@ -30,9 +30,7 @@
             <% else %>
               <%= display_take_part_button_for(question) %>
 
-              <div class="delegations-notice flex--cc">
-                <%= link_to "You have delegations granted", decidim_consultations.question_path(question) %>
-              </div>
+              <%= render partial: "decidim/action_delegator/link_to_question", locals: { question: question } %>
 
             <% end %>
           </div>
