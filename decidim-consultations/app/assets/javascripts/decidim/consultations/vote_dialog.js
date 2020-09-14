@@ -46,26 +46,4 @@ $(document).ready(function () {
     $("#confirm-vote-form-loader,#confirm-vote-form").toggleClass("hide");
     voteConfirmDialog.foundation("close");
   });
-
-  let delegationsButton = $("#delegations-button"),
-      delegationCallouts = $(".delegation-callout"),
-      delegationCalloutsMessage = $(".delegation-callout-message"),
-      delegationDialog = $("#delegations-modal"),
-      delegationVoteButtons = $(".delegation-vote-button"),
-      delegationField = $("#decidim_consultations_delegation_id");
-
-  delegationsButton.click(function () {
-    delegationDialog.foundation("open");
-  });
-
-  delegationVoteButtons.click(function () {
-    voteDialog.foundation("open");
-    delegationField.val($(this).data("delegation-id"));
-    delegationCalloutsMessage.text($(this).data("delegation-granter-name"));
-    delegationCallouts.removeClass("is-hidden");
-  });
-
-  button.click(function() {
-    delegationCallouts.addClass("is-hidden");
-  });
 });
