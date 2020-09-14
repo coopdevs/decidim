@@ -96,6 +96,6 @@
 
 <%= render partial: "decidim/consultations/questions/vote_modal", locals: { question: question } %>
 <%= render partial: "decidim/consultations/questions/vote_modal_confirm", locals: { question: question } %>
-<%= render partial: "decidim/action_delegator/delegations_modal", locals: { consultation: question.consultation } %>
+<%= render partial: "decidim/action_delegator/delegations_modal", locals: { question: question } %>
 <%= javascript_include_tag "decidim/consultations/utils" %>
 <%= javascript_include_tag "decidim/consultations/vote_dialog" %>
