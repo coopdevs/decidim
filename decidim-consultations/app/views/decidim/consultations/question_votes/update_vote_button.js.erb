@@ -18,4 +18,12 @@
     $('#confirm-vote-form').removeClass('hide');
   <% end %>
 
+  const delegationsButton = $("#delegations-button"),
+        delegationDialog = $("#delegations-modal");
+
+  delegationDialog.foundation();
+
+  delegationsButton.click(function () {
+    delegationDialog.foundation("open");
+  });
 }());
