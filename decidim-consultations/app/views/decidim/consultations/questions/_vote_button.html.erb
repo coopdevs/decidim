@@ -59,14 +59,14 @@
             <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
           <% end %>
         <% end %>
-
-        <%= render partial: "decidim/action_delegator/link_to_delegations", locals: { consultation: question.consultation } %>
-
       <% else %>
         <%= authorized_vote_modal_button(question, remote: true, class: "button expanded light button--sc") do %>
           <%= t("questions.vote_button.verification_required", scope: "decidim") %>
         <% end %>
       <% end %>
+
+      <%= render partial: "decidim/action_delegator/link_to_delegations", locals: { consultation: question.consultation } %>
+
     <% elsif question.consultation.active? %>
       <%= logged_button_to decidim_consultations.question_question_votes_path(question),
                            class: "card__button button expanded",
