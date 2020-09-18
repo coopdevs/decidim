@@ -32,10 +32,24 @@ module Decidim
       attr_reader :form
 
       def build_vote
-        form.context.current_question.votes.build(
-          author: form.context.current_user,
-          response: form.response
-        )
+        if delegation
+          form.context.current_question.votes.build(
+            author: delegation.granter,
+            response: form.response
+          )
+        else
+          form.context.current_question.votes.build(
+            author: form.context.current_user,
+            response: form.response
+          )
+        end
+      end
+
+      def delegation
+        @delegation ||= Decidim::ActionDelegator::ConsultationDelegations.for(
+          current_question.consultation,
+          form.context.current_user
+        ).find_by(id: form.decidim_consultations_delegation_id)
       end
     end
   end
